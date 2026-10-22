@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakers Bite | Freshly Baked Daily</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</head>
+<style>
+      .slider {
+            width: 100%;
+            height: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            animation: slide 9s infinite;
+        }
+
+        .slides img {
+            width: 33.333%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+
+            30% {
+                transform: translateX(0);
+            }
+
+            35% {
+                transform: translateX(-33.333%);
+            }
+
+            65% {
+                transform: translateX(-33.333%);
+            }
+
+            70% {
+                transform: translateX(-66.666%);
+            }
+
+            95% {
+                transform: translateX(-66.666%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        color: #333;
+        background-color: #faf7f2;
+        line-height: 2.1;
+    }
+   
+
+    .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(hero.jpg)no-repeat center center/cover;
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        color: #ffffff;
+
+    }
+
+    .hero h1 {
+        font-size: 65px;
+        margin-bottom: 25px;
+    }
+
+    .hero p {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        display: inline-block;
+        background-color: #d2691e;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+
+    }
+
+    .btn:hover {
+        background-color: #a0522d;
+    }
+
+    section {
+        padding: 64px 32px;
+        max-width: 1200px;
+        margin: 0 auto;
+
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 32px;
+        color: #d2691e;
+        margin-bottom: 32px;
+    }
+
+    .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+
+    .menu-item {
+        background-color: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(1, 0, 0, 0.05);
+        text-align: center;
+        padding: 5px;
+        border-bottom: 4px solid #e9dcc9;
+        transition: transform 0, 2s ease-in;
+
+    }
+
+    .menu-item:hover {
+
+        transform: scale(1.1);
+    }
+
+    .menu-item h3 {
+        margin-bottom: 8px;
+        color: #444;
+    }
+
+    .menu-item .price {
+        color: #d2691e;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #d2691e;
+    }
+
+    .Showcase {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .Showcase img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 10px;
+
+    }
+
+    .Showcase img:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+
+    .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        height: 120px;
+    }
+
+    .contact-form button {
+        width: 100%;
+        background-color: #d2691e;
+        color: white;
+        border: none;
+        padding: 0.75rem;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+        background-color: #a0522d;
+    }
+
+    footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 24px;
+        font-size: 14px;
+        margin-top: 64px;
+    }
+</style>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white" >
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img style="margin-left: 20px;" src="Black and Cream Minimalist Modern Bakery Logo.png" height="100px"  alt=""></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown" style="justify-content:end ; font-size: large; "  >
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" style="color: #d2691e;"  href="#home"><b>Home</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: #d2691e;" href="#menu"><b>Menu</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: #d2691e;" href="#Showcase"><b>Showcase</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: #d2691e;" href="#about "><b>About Us</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: #d2691e;" href="#contact "><b>Contact Us</b></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color: #d2691e;" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <b>Dropdown link</b>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#cakes">Cakes</a></li>
+            <li><a class="dropdown-item" href="#pastries">Pastries</a></li>
+            <li><a class="dropdown-item" href="#cookies">Cookies</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+        <!-- <div class="logo">Bakers Bite</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#Showcase">Showcase</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+
+
+
+        </nav> -->
+    </header>
+    <div class="hero" id="home">
+        <h1>Welcome to Bakers Bite</h1>
+        <p>Delicious, handcrafted pastries and bread made with love every single day.</p>
+        <a href="#menu" class="btn">View Our Menu</a>
+    </div>
+       <section id="cakes" class="slider">
+         <h1>Cakes</h1>
+        <div class="slides">
+
+            <img src="c1.jpg" sizes="300px" alt="Image 1">
+            <img src="c2.jpg" alt="Image 2">
+            <img src="c3.jpg" alt="Image 3">
+            <img src="c4.jpg" alt="Image 3">
+            <img src="c5.jpg" alt="Image 3">
+            <img src="c6.jpg" alt="Image 3">
+            <img src="c7.jpg" alt="Image 3">
+         
+
+        </div>
+
+    </section>
+     <section id="pastries" class="slider">
+         <h1>Pastries</h1>
+        <div class="slides">
+
+            <img src="p1.jpg" alt="Image 1">
+            <img src="p2.jpg" alt="Image 2">
+            <img src="p3.jpg" alt="Image 3">
+            <img src="p4.jpg" alt="Image 3">
+            <img src="p5.jpg" alt="Image 3">
+            <img src="p6.jpg" alt="Image 3">
+            <img src="p7.jpg" alt="Image 3">
+
+        </div>
+
+    </section>
+     <section id="cookies" class="slider">
+         <h1>Cookies</h1>
+        <div class="slides">
+
+            <img src="b1.jpg" alt="Image 1">
+            <img src="b2.jpg" alt="Image 2">
+            <img src="b3.jpg" alt="Image 3">
+            <img src="b4.jpg" alt="Image 3">
+            <img src="b5.jpg" alt="Image 3">
+            <img src="b6.jpg" alt="Image 3">
+            <img src="b7.jpg" alt="Image 3">
+
+        </div>
+
+    </section>
+   
+   
+    <section id="menu">
+        <h2 class="section-title">Popular Treats</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="Chocolate Cupcakes.png" height="150px" alt="image">
+                <h3>Chocolate Cupcakes</h3>
+                <p>Rich chocolate cake topped with creamy frosting. </p>
+                <p class="price">$6.35</p>
+            </div>
+            <div class="menu-item">
+                <img src="Blueberry Muffins.jpg" height="150px" alt="image">
+                <h3>Blueberry Muffins</h3>
+                <p>Bursting with fresh blueberries and a crumbly top. </p>
+                <p class="price">$6.35</p>
+            </div>
+            <div class="menu-item">
+                <img src="cookie.jpg" height="150px" alt="image">
+                <h3>Cookies</h3>
+                <p>Crispy, chewy, and packed with chocolate perfection. </p>
+                <p class="price">$6.35</p>
+            </div>
+            <div class="menu-item">
+                <img src="pastries.png" height="150px" alt="image">
+                <h3>Pastries</h3>
+                <p>Sweet, delicate, and crafted to flaky perfection. </p>
+                <p class="price">$6.35</p>
+            </div>
+            <div class="menu-item">
+                <img src="Custom Cakes.jpg" height="150px" alt="image">
+                <h3>Custom Cakes</h3>
+                <p>Moist, decadent, and crafted to delicious perfection. </p>
+                <p class="price">$6.35</p>
+            </div>
+            <div class="menu-item">
+                <img src="desserts.png" height="150px" alt="image">
+                <h3>Desserts</h3>
+                <p>Rich, decadent, and crafted to sweet perfection.</p>
+                <p class="price">$6.35</p>
+            </div>
+            <div class="menu-item">
+                <img src="sliced-sourdough-bread.png" height="150px" alt="image">
+                <h3>Desserts</h3>
+                <p>Rich, decadent, and crafted to sweet perfection.</p>
+                <p class="price">$6.35</p>
+            </div>
+            <div class="menu-item">
+                <img src="sliced-sourdough-bread.png" height="150px" alt="image">
+                <h3>Desserts</h3>
+                <p>Rich, decadent, and crafted to sweet perfection.</p>
+                <p class="price">$6.35</p>
+            </div>
+        </div>
+    </section>
+    <section id="Showcase">
+        <h1> Showcase</h1>
+
+        <div class="Showcase">
+            <img src="g1.jpg" alt="Photo 1">
+            <img src="g2.jpg" alt="Photo 2">
+            <img src="g3.jpg" alt="Photo 3">
+            <img src="g4.jpg" alt="Photo 4">
+            <img src="g5.jpg" alt="Photo 5">
+            <img src="g6.jpg" alt="Photo 6">
+            <img src="g7.jpg" alt="Photo 7">
+            <img src="g8.jpg" alt="Photo 8">
+        </div>
+    </section>
+    <section id="about" style="background-color: #e9dcc9; max-width: 100%;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <h2 class="section-title">About Us </h2>
+            <p class="about-text">
+                Founded in <b>2015, Bakerz Bite</b> started in a small kitchen with a simple mission: <b> to bake pure
+                    joy into every single bite</b>. What began as a passion for hand-crafting the perfect
+                melt-in-your-mouth pastry has grown into a beloved premium bakery known for artisan cakes, golden pies,
+                and soft-baked cookies. <br>
+                We believe that extraordinary flavor starts with honest ingredients. That’s why we use <b>100% organic
+                    flours, real farm butter, and hand-selected seasonal fruits</b>. No shortcuts, no artificial
+                presets—just old-world techniques blended with modern creativity. <br>
+                Thank you for letting us be the sweetest part of your day! 🥐✨
+
+            </p>
+        </div>
+    </section>
+
+
+    <section id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <form class="contact-form" action="#" method="POST">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message / Order Inquiry</label>
+                <textarea id="message" name="message" required placeholder="What are you craving?"></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2026 Bakers Bite. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
